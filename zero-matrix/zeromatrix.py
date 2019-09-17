@@ -19,6 +19,23 @@ Make sure it works with non-square matrices:
 
 def zero_matrix(matrix):
     """Given an NxM matrix, for cells=0, set their row and column to zeroes."""
+    zrows = set()
+    zcolumns = set()
+    for i, row in enumerate(matrix):
+        if not 0 in set(row):
+            continue
+        for ii, val in enumerate(row):
+            if val == 0:
+                zrows.add(i)
+                zcolumns.add(ii)
+    for z in zrows:
+        for i in range(len(matrix[z])):
+            matrix[z][i] = 0
+    for z in zcolumns:
+        for i in range(len(matrix)):
+            matrix[i][z] = 0
+
+    return matrix
 
 
 if __name__ == "__main__":
