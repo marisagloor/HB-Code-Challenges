@@ -40,6 +40,24 @@ def steps(n):
 
     You can climb 1, 2, or 3 steps at a time.
     """
+    # print(n)
+    climbs = 0
+    if n >= 3:
+        # print(3)
+        climbs = steps(n - 3) + climbs
+    if n >= 2:
+        # print(2)
+        climbs = steps(n - 2) + climbs
+    if n >= 1:
+        # print(1)
+        climbs = steps(n - 1) + climbs
+    if n == 0:
+        # print(0)
+        return climbs + 1
+
+    return climbs
+
+
 
 
 if __name__ == '__main__':
